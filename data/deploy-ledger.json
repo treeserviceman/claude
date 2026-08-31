@@ -1222,5 +1222,77 @@
     "contentFixed": true,
     "headingsFixed": true,
     "url": "https://raccoonremovallancastercounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalpickenscounty",
+    "siteId": "c4fe4988-3415-458b-b3d4-5e71e670f563",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalpickenscounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalcollincounty",
+    "siteId": "c82b2122-9dac-47cf-a51e-564dc7bdd92b",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalcollincounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalrockinghamcounty",
+    "siteId": "57f26481-310a-45b1-9f45-571a615fa29e",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalrockinghamcounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalsanbernardinocounty",
+    "siteId": "bcb3ef8b-18fe-48d3-a72e-1cdc6f6a177f",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalsanbernardinocounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalwebstercounty",
+    "siteId": "9cc71958-3a78-4b43-a752-283ae19ec08d",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalwebstercounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovaldekalbcounty",
+    "siteId": "2d4dbb51-3bdd-4f2c-9095-fee0b17c7761",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovaldekalbcounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalchestercounty",
+    "siteId": "26ddbcc5-9a12-4427-aa0f-b5f4caed4473",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalchestercounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalsacramentocounty2",
+    "siteId": "c8e861d4-004b-45ec-9f61-9604c7af04b5",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalsacramentocounty2.netlify.app"
   }
 ]
