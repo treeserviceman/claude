@@ -1,7 +1,7 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const { buildSiteCtx, renderIndex, renderServices, renderServiceArea, renderFaq, renderContact } = require('./lib/render');
+const { buildSiteCtx, renderIndex, renderServices, renderServiceArea, renderFaq, renderContact, renderSinglePage } = require('./lib/render');
 
 const records = require('../data/sites.json');
 const sitesDir = path.join(__dirname, '..', 'sites');
@@ -23,6 +23,8 @@ for (const record of records) {
   fs.writeFileSync(path.join(dir, 'service-area.html'), renderServiceArea(ctx));
   fs.writeFileSync(path.join(dir, 'faq.html'), renderFaq(ctx));
   fs.writeFileSync(path.join(dir, 'contact.html'), renderContact(ctx));
+  // Single-file bundle: the deployable artifact (see DEPLOY_NOTES). Multi-page files above are kept as source/reference.
+  fs.writeFileSync(path.join(dir, 'bundle.html'), renderSinglePage(ctx));
 
   fs.writeFileSync(path.join(dir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: https://${domain}/sitemap.xml\n`);
 

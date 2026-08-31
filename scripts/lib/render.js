@@ -195,18 +195,19 @@ ${s.fontLink ? `<link rel="preconnect" href="https://fonts.googleapis.com">\n<li
 })}</script>`;
 }
 
-function headerNav(ctx) {
+function headerNav(ctx, links) {
+  const l = links || { home: 'index.html', services: 'services.html', area: 'service-area.html', faq: 'faq.html', contact: 'contact.html' };
   const cls = ctx.headerStyle === 'stacked' ? 'site stacked' : 'site';
   return `<div class="top-callbar">Raccoon in the attic? Call now: <a href="tel:${PHONE_RAW}">${PHONE_DISPLAY}</a></div>
 <header class="${cls}">
   <div class="wrap bar">
-    <a class="brand" href="index.html">${esc(ctx.businessName)}</a>
+    <a class="brand" href="${l.home}">${esc(ctx.businessName)}</a>
     <nav class="main">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="service-area.html">Service Area</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
+      <a href="${l.home}">Home</a>
+      <a href="${l.services}">Services</a>
+      <a href="${l.area}">Service Area</a>
+      <a href="${l.faq}">FAQ</a>
+      <a href="${l.contact}">Contact</a>
     </nav>
     <a class="header-call" href="tel:${PHONE_RAW}">${phoneIcon()} ${PHONE_DISPLAY}</a>
   </div>
@@ -217,7 +218,8 @@ function floatCall() {
   return `<a class="float-call" href="tel:${PHONE_RAW}" aria-label="Call ${PHONE_DISPLAY}">${phoneIcon()}<span class="long">Call Now:</span> ${PHONE_DISPLAY}</a>`;
 }
 
-function footer(ctx) {
+function footer(ctx, links) {
+  const l = links || { home: 'index.html', services: 'services.html', area: 'service-area.html', faq: 'faq.html', contact: 'contact.html' };
   return `<footer class="site">
   <div class="wrap">
     <div class="grid-4">
@@ -228,16 +230,16 @@ function footer(ctx) {
       </div>
       <div>
         <h4>Services</h4>
-        <p><a href="services.html">Raccoon Trapping &amp; Removal</a><br>
-        <a href="services.html">Attic Exclusion</a><br>
-        <a href="services.html">Damage Repair</a><br>
-        <a href="services.html">Chimney &amp; Crawl Space Removal</a></p>
+        <p><a href="${l.services}">Raccoon Trapping &amp; Removal</a><br>
+        <a href="${l.services}">Attic Exclusion</a><br>
+        <a href="${l.services}">Damage Repair</a><br>
+        <a href="${l.services}">Chimney &amp; Crawl Space Removal</a></p>
       </div>
       <div>
         <h4>Company</h4>
-        <p><a href="service-area.html">Service Area</a><br>
-        <a href="faq.html">FAQ</a><br>
-        <a href="contact.html">Contact</a></p>
+        <p><a href="${l.area}">Service Area</a><br>
+        <a href="${l.faq}">FAQ</a><br>
+        <a href="${l.contact}">Contact</a></p>
       </div>
       <div>
         <h4>Hours</h4>
@@ -249,34 +251,35 @@ function footer(ctx) {
 </footer>`;
 }
 
-function heroSection(ctx) {
+function heroSection(ctx, contactHref) {
+  contactHref = contactHref || 'contact.html';
   if (ctx.heroStyle === 'banner') {
-    return `<section class="hero hero-banner">
+    return `<section class="hero hero-banner" id="top">
   <div class="wrap">
     <div class="eyebrow">${esc(ctx.hero.kicker)}</div>
     <h1>${esc(ctx.hero.headline)}</h1>
     <p class="hero-sub" style="margin:0 auto">${esc(ctx.hero.sub)}</p>
     <div class="hero-actions" style="justify-content:center">
       <a class="btn" style="background:#fff;color:var(--accent)" href="tel:${PHONE_RAW}">${phoneIcon()} Call ${PHONE_DISPLAY}</a>
-      <a class="btn secondary" style="border-color:#fff;color:#fff" href="contact.html">Request Inspection</a>
+      <a class="btn secondary" style="border-color:#fff;color:#fff" href="${contactHref}">Request Inspection</a>
     </div>
   </div>
 </section>`;
   }
   if (ctx.heroStyle === 'centered') {
-    return `<section class="hero hero-centered">
+    return `<section class="hero hero-centered" id="top">
   <div class="wrap">
     <div class="eyebrow">${esc(ctx.hero.kicker)}</div>
     <h1>${esc(ctx.hero.headline)}</h1>
     <p class="hero-sub">${esc(ctx.hero.sub)}</p>
     <div class="hero-actions">
       <a class="btn" href="tel:${PHONE_RAW}">${phoneIcon()} Call ${PHONE_DISPLAY}</a>
-      <a class="btn secondary" href="contact.html">Request Inspection</a>
+      <a class="btn secondary" href="${contactHref}">Request Inspection</a>
     </div>
   </div>
 </section>`;
   }
-  return `<section class="hero hero-split">
+  return `<section class="hero hero-split" id="top">
   <div class="wrap grid grid-2">
     <div>
       <div class="eyebrow">${esc(ctx.hero.kicker)}</div>
@@ -284,7 +287,7 @@ function heroSection(ctx) {
       <p class="hero-sub">${esc(ctx.hero.sub)}</p>
       <div class="hero-actions">
         <a class="btn" href="tel:${PHONE_RAW}">${phoneIcon()} Call ${PHONE_DISPLAY}</a>
-        <a class="btn secondary" href="contact.html">Request Inspection</a>
+        <a class="btn secondary" href="${contactHref}">Request Inspection</a>
       </div>
     </div>
     <div class="hero-art" style="color:var(--accent)">${svgRaccoon()}</div>
@@ -429,4 +432,101 @@ function renderContact(ctx) {
   return pageShell(ctx, { path: 'contact.html', title: `Contact Us | ${ctx.businessName}`, description: `Call ${PHONE_DISPLAY} to reach the ${ctx.loc} raccoon removal team. Fast, humane, licensed service.` }, body);
 }
 
-module.exports = { buildSiteCtx, renderIndex, renderServices, renderServiceArea, renderFaq, renderContact };
+function renderSinglePage(ctx) {
+  const links = { home: '#top', services: '#services', area: '#service-area', faq: '#faq', contact: '#contact' };
+  const signsHtml = ctx.signs.map((s, i) => `<li><span class="dot">${i + 1}</span><div><strong>${esc(s.t)}</strong><p style="margin:.2em 0 0">${esc(s.d)}</p></div></li>`).join('');
+  const whyHtml = ctx.whyUs.map((w) => `<li><span class="dot">✓</span><div><strong>${esc(w.t)}</strong><p style="margin:.2em 0 0">${esc(w.d)}</p></div></li>`).join('');
+  const svcHtml = ctx.serviceStyle === 'list'
+    ? `<div class="services-list">${ctx.services.map((s, i) => `<div class="svc-row"><div class="svc-num">${String(i + 1).padStart(2, '0')}</div><div><h3 style="margin:0 0 .3em">${esc(s.t)}</h3><p style="color:var(--ink-soft);margin:0">${esc(s.d)}</p></div></div>`).join('')}</div>`
+    : `<div class="grid grid-3 services-grid">${ctx.services.map((s) => `<div class="card"><h3 style="font-size:1.15rem">${esc(s.t)}</h3><p style="color:var(--ink-soft)">${esc(s.d)}</p></div>`).join('')}</div>`;
+  const faqHtml = ctx.faqs.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('');
+
+  const body = `
+${heroSection(ctx, '#contact')}
+
+<section class="section">
+  <div class="wrap grid grid-2" style="align-items:center">
+    <div>
+      <div class="eyebrow">Why It Happens</div>
+      <h2>Raccoon Removal in ${esc(ctx.loc)}</h2>
+      <p>${esc(ctx.intro)}</p>
+      <p>Homes and businesses across ${esc(ctx.loc)} deal with ${esc(ctx.climate)} — exactly the conditions that send raccoons looking for a warm, dry attic to den in.</p>
+    </div>
+    <div class="card">
+      <h3>Signs You Have Raccoons</h3>
+      <ul class="signs-list">${signsHtml}</ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div class="eyebrow">What We Do</div>
+    <h2>Raccoon Removal Services in ${esc(ctx.loc)}</h2>
+    <p class="hero-sub" style="max-width:720px">Every job starts with a full inspection so we can tell you exactly where raccoons are getting in and what it will take to fix it for good.</p>
+    <div style="margin-top:26px">${svcHtml}</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid-2" style="align-items:center">
+    <ul class="why-list">${whyHtml}</ul>
+    <div>
+      <div class="eyebrow">Why Choose Us</div>
+      <h2>The ${esc(ctx.loc)} Difference</h2>
+      <p>We're not a call center dispatching whoever is closest — every technician follows the same humane, full-exclusion process on every job in ${esc(ctx.loc)}.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="service-area" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap grid grid-2" style="align-items:start">
+    <div>
+      <div class="eyebrow">Where We Work</div>
+      <h2>${esc(ctx.loc)} Service Area</h2>
+      <p>${esc(ctx.stateFull ? `Homes and businesses across ${esc(ctx.stateFull)}` : `Properties across ${esc(ctx.loc)}`)} deal with ${esc(ctx.climate)}. That means raccoon activity picks up every year as the weather turns, and attics, chimneys, and crawl spaces in ${esc(ctx.loc)} become prime denning spots.</p>
+      <p>We respond to homes and businesses throughout ${esc(ctx.loc)} and the surrounding ${esc(ctx.areaNoun)}, residential and commercial alike.</p>
+    </div>
+    <div>${mapEmbed(ctx)}</div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Common Questions</div>
+    <h2>Raccoon Removal FAQ</h2>
+    <div class="faq" style="max-width:820px;margin-top:24px">${faqHtml}</div>
+  </div>
+</section>
+
+${ctaBand(ctx)}
+
+<section class="section" id="contact">
+  <div class="wrap grid grid-2" style="align-items:start">
+    <div class="card">
+      <div class="eyebrow">Get In Touch</div>
+      <h2>Contact ${esc(ctx.businessName)}</h2>
+      <p style="font-size:1.6rem;font-weight:800"><a href="tel:${PHONE_RAW}">${PHONE_DISPLAY}</a></p>
+      <p>Mon–Sat 7am–7pm · 24/7 emergency line<br>${esc(ctx.loc)} and surrounding ${esc(ctx.areaNoun)}</p>
+      <a class="btn" href="tel:${PHONE_RAW}">${phoneIcon()} Call ${PHONE_DISPLAY}</a>
+    </div>
+    <div>${mapEmbed(ctx)}</div>
+  </div>
+</section>
+`;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+${head(ctx, { path: '', title: `Raccoon Removal ${ctx.loc} | ${ctx.businessName}`, description: `Humane raccoon removal in ${ctx.loc}. Attic exclusion, trapping, and damage repair. Call ${PHONE_DISPLAY} for fast, licensed service.` })}
+</head>
+<body>
+${headerNav(ctx, links)}
+${body}
+${footer(ctx, links)}
+${floatCall()}
+</body>
+</html>`;
+}
+
+module.exports = { buildSiteCtx, renderIndex, renderServices, renderServiceArea, renderFaq, renderContact, renderSinglePage };
