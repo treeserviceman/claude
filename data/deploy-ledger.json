@@ -862,5 +862,86 @@
     "contentFixed": true,
     "headingsFixed": true,
     "url": "https://raccoonremovalbrowncounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalbaldwincountyal",
+    "siteId": "716691ed-932c-4426-9c2f-b3d0fdd54b75",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalbaldwincountyal.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalmobilecounty",
+    "siteId": "5f2d9eff-dc4b-42cc-ad50-d2da03230067",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalmobilecounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovaldallascounty2",
+    "siteId": "8d090ea9-0ca3-45bd-b536-541a7613fb5f",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovaldallascounty2.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalleecounty",
+    "siteId": "57c23804-48c9-43d5-941a-8345db78e088",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalleecounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalbexarcounty",
+    "siteId": "1ccb7807-4abf-4bfe-ba10-364e4e0a04d3",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalbexarcounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalmiamidadecounty",
+    "siteId": "e708ee85-4111-4cd1-894d-3ed946dc8d01",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalmiamidadecounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalsuffolkcountyny",
+    "siteId": "eb0f65ee-9146-4a16-94d7-25b9ced9159b",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalsuffolkcountyny.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalgradycounty",
+    "siteId": "d30f5167-81d6-482f-9c9e-aefc0f583b39",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalgradycounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovaldelewarecounty",
+    "siteId": "fe2f59d6-5c65-471c-be47-3247be7055ab",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovaldelewarecounty.netlify.app"
   }
 ]
