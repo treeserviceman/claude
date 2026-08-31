@@ -943,5 +943,77 @@
     "contentFixed": true,
     "headingsFixed": true,
     "url": "https://raccoonremovaldelewarecounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovaltetoncounty",
+    "siteId": "5f2a211c-86e2-4db0-947d-b08751af8a5c",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovaltetoncounty.netlify.app"
+  },
+  {
+    "slug": "kentcountyraccoonremoval",
+    "siteId": "6f7f06b7-5bcb-4c74-99c7-6d9c9a93bb2c",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://kentcountyraccoonremoval.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalbuckscounty",
+    "siteId": "280d8993-6f00-4791-8ab7-4d44954505a2",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalbuckscounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalbrowardcounty",
+    "siteId": "bf2b9429-7421-41c2-9b2a-5f0bec63d373",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalbrowardcounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalcherokeecounty",
+    "siteId": "c2ab93b2-8219-473a-9e50-41aa41faa83f",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalcherokeecounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalhenrycounty",
+    "siteId": "e98c956e-c464-4ed0-938e-40724e957c55",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalhenrycounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalfranklincounty",
+    "siteId": "a043efcf-93c8-43db-9738-fec7525bfe92",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalfranklincounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovallaurenscounty",
+    "siteId": "5db61750-f455-46bb-ad27-d44eb16370cf",
+    "deployed": true,
+    "accessFixed": true,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovallaurenscounty.netlify.app"
   }
 ]
