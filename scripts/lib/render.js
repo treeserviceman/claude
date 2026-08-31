@@ -1,7 +1,10 @@
 'use strict';
 const {
-  hash, pick, pickN, THEMES, HERO_STYLES, HEADER_STYLES, SERVICE_STYLES, FOOTER_STYLES,
-  HERO_KICKERS, HERO_HEADLINES, HERO_SUBS, INTRO_PARAS, SIGNS, WHY_US, SERVICES, FAQS, CTA_LINES,
+  hash, pick, pickN, compose, THEMES, HERO_STYLES, HEADER_STYLES, SERVICE_STYLES, FOOTER_STYLES,
+  HERO_KICKERS, HERO_HEADLINES, HERO_SUBS,
+  INTRO_OPENERS, INTRO_DETAILS, INTRO_CLOSERS,
+  SIGNS, WHY_US, SERVICES, FAQS, CTA_LINES,
+  SERVICES_INTRO_LINES, SERVICE_AREA_LEADS, FAQ_INTRO_LINES,
 } = require('./content');
 const { PHONE_RAW, PHONE_DISPLAY } = require('./data');
 
@@ -35,17 +38,20 @@ function buildSiteCtx(record, domain) {
     headline: fill(pick(slug + 'h', HERO_HEADLINES), loc),
     sub: fill(pick(slug + 's', HERO_SUBS), loc),
   };
-  const intro = fill(pick(slug + 'i', INTRO_PARAS), loc);
+  const intro = fill(compose(slug + 'intro', [INTRO_OPENERS, INTRO_DETAILS, INTRO_CLOSERS]), loc);
   const signs = pickN(slug + 'signs', SIGNS, 6);
   const whyUs = pickN(slug + 'why', WHY_US, 5).map((w) => ({ t: w.t, d: fill(w.d, loc) }));
   const services = pickN(slug + 'svcs', SERVICES, 8);
   const faqs = pickN(slug + 'faq', FAQS, 6).map((f) => ({ q: fill(f.q, loc), a: fill(f.a, loc) }));
   const cta = fill(pick(slug + 'cta', CTA_LINES), loc);
+  const servicesIntro = fill(pick(slug + 'svcintro', SERVICES_INTRO_LINES), loc);
+  const serviceAreaLead = fill(pick(slug + 'arealead', SERVICE_AREA_LEADS), loc);
+  const faqIntro = fill(pick(slug + 'faqintro', FAQ_INTRO_LINES), loc);
 
   return {
     slug, domain, theme, heroStyle, headerStyle, serviceStyle, footerStyle,
     loc, locNoState, stateFull, region, climate, areaNoun, businessName, mapQuery,
-    hero, intro, signs, whyUs, services, faqs, cta,
+    hero, intro, signs, whyUs, services, faqs, cta, servicesIntro, serviceAreaLead, faqIntro,
     record,
   };
 }
@@ -372,7 +378,7 @@ function renderServices(ctx) {
     : `<div class="grid grid-3 services-grid">${ctx.services.map((s) => `<div class="card"><h3 style="font-size:1.15rem">${esc(s.t)}</h3><p style="color:var(--ink-soft)">${esc(s.d)}</p></div>`).join('')}</div>`;
 
   const body = `
-<section class="section-tight"><div class="wrap"><div class="eyebrow">What We Do</div><h1>Raccoon Removal Services in ${esc(ctx.loc)}</h1><p class="hero-sub">Every job starts with a full inspection so we can tell you exactly where raccoons are getting in and what it will take to fix it for good.</p></div></section>
+<section class="section-tight"><div class="wrap"><div class="eyebrow">What We Do</div><h1>Raccoon Removal Services in ${esc(ctx.loc)}</h1><p class="hero-sub">${esc(ctx.servicesIntro)}</p></div></section>
 <section class="section"><div class="wrap">${items}</div></section>
 ${ctaBand(ctx)}
 `;
@@ -387,7 +393,7 @@ function renderServiceArea(ctx) {
     <div>
       <h2>Local Response Across ${esc(ctx.loc)}</h2>
       <p>${esc(ctx.stateFull ? `Homes and businesses across ${esc(ctx.stateFull)}` : `Properties across ${esc(ctx.loc)}`)} deal with ${esc(ctx.climate)}. That means raccoon activity picks up every year as the weather turns, and attics, chimneys, and crawl spaces in ${esc(ctx.loc)} become prime denning spots.</p>
-      <p>Whether you're in a dense residential neighborhood or a more rural stretch of ${esc(ctx.loc)}, our technicians carry the same humane trapping and exclusion equipment to every call.</p>
+      <p>${esc(ctx.serviceAreaLead)}</p>
       <ul class="why-list">
         <li><span class="dot">✓</span><div><strong>Residential service</strong><p style="margin:.2em 0 0">Single-family homes, townhomes, and condos throughout ${esc(ctx.loc)}.</p></div></li>
         <li><span class="dot">✓</span><div><strong>Commercial service</strong><p style="margin:.2em 0 0">Retail, restaurants, warehouses, and multi-family buildings.</p></div></li>
@@ -405,7 +411,7 @@ ${ctaBand(ctx)}
 function renderFaq(ctx) {
   const items = ctx.faqs.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('');
   const body = `
-<section class="section-tight"><div class="wrap"><div class="eyebrow">Common Questions</div><h1>Raccoon Removal FAQ</h1><p class="hero-sub">Answers to the questions we hear most from ${esc(ctx.loc)} homeowners and businesses.</p></div></section>
+<section class="section-tight"><div class="wrap"><div class="eyebrow">Common Questions</div><h1>Raccoon Removal FAQ</h1><p class="hero-sub">${esc(ctx.faqIntro)}</p></div></section>
 <section class="section"><div class="wrap faq" style="max-width:820px">${items}</div></section>
 ${ctaBand(ctx)}
 `;
