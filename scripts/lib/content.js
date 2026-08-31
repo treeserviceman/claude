@@ -266,6 +266,46 @@ const FAQ_INTRO_LINES = [
   'What {LOC} homeowners want to know before we show up.',
 ];
 
+// Heading/eyebrow variants — keeps H1/H2/eyebrow text (not just body copy) from
+// repeating verbatim across sites. Every variant keeps the core keyword intact.
+const EYEBROW_WHY = ['Why It Happens', 'Understanding the Problem', 'The Root Cause', 'Why Raccoons Get In', "What's Going On", 'Behind the Noise'];
+const EYEBROW_SERVICES = ['Our Services', 'What We Do', 'How We Help', 'Services We Offer', 'Full-Service Removal'];
+const EYEBROW_AREA = ['Service Area', 'Where We Work', 'Who We Serve', 'Coverage Area', 'Local Coverage'];
+const EYEBROW_FAQ = ['Common Questions', 'Frequently Asked', 'Questions & Answers', 'What People Ask'];
+const EYEBROW_CONTACT = ['Get In Touch', 'Contact Us', 'Reach Out', 'Talk to Our Team'];
+const EYEBROW_WHYUS = ['Why Choose Us', 'The Difference', 'What Sets Us Apart', 'Our Approach'];
+
+const H2_INTRO = [
+  'Raccoon Removal in {LOC}',
+  '{LOC} Raccoon Problems, Solved',
+  'Understanding Raccoon Activity in {LOC}',
+  'Why {LOC} Homes Get Raccoons',
+  'The {LOC} Raccoon Problem',
+  'Raccoons in {LOC}: What to Know',
+];
+const H2_SERVICES_PREVIEW = [
+  'Complete Raccoon & Wildlife Removal',
+  'Full-Service Wildlife Solutions',
+  'Everything You Need, One Call',
+  'Raccoon & Wildlife Services',
+  'Removal, Exclusion & Repair',
+];
+const H2_AREA_INDEX = ['Serving {LOC}', '{LOC} Coverage', 'We Cover {LOC}', 'Proudly Serving {LOC}', 'Working Throughout {LOC}'];
+const H1_SERVICES = [
+  'Raccoon Removal Services in {LOC}',
+  '{LOC} Raccoon Removal Services',
+  'Our Raccoon Removal Services',
+  'Complete Services for {LOC}',
+  'Raccoon & Wildlife Services in {LOC}',
+];
+const H1_SERVICE_AREA = ['{LOC} Service Area', 'Where We Serve: {LOC}', 'Serving {LOC} and Beyond', '{LOC} Coverage Area', 'Areas We Serve Near {LOC}'];
+const H2_AREA_LOCAL = ['Local Response Across {LOC}', 'Fast Response in {LOC}', 'On the Ground in {LOC}', '{LOC} Response Times', 'Local Crews, Local Knowledge'];
+const H1_FAQ = ['Raccoon Removal FAQ', 'Frequently Asked Questions', '{LOC} Raccoon Removal FAQ', 'Questions About Raccoon Removal', 'Raccoon Removal: Common Questions'];
+const H1_CONTACT = ['Contact {BIZ}', 'Get in Touch With {BIZ}', 'Reach {BIZ}', 'Talk to {BIZ}', 'Contact Our {LOC} Team'];
+const H3_SIGNS = ['Signs You Have Raccoons', 'Common Warning Signs', 'How to Tell You Have Raccoons', 'Signs of a Raccoon Problem', 'Is It Raccoons? Look For This'];
+const H2_CTA = ['Ready to solve your raccoon problem?', 'Ready to get started?', "Let's fix your raccoon problem", 'Ready when you are', 'One call away from a fix'];
+const H2_WHYUS_DIFF = ['The {LOC} Difference', 'Why {LOC} Trusts Us', 'What Makes Us Different', 'Our {LOC} Standard'];
+
 module.exports = {
   hash, pick, pickN, compose,
   THEMES, HERO_STYLES, HEADER_STYLES, SERVICE_STYLES, FOOTER_STYLES,
@@ -273,4 +313,7 @@ module.exports = {
   INTRO_OPENERS, INTRO_DETAILS, INTRO_CLOSERS,
   SIGNS, WHY_US, SERVICES, FAQS, CTA_LINES,
   SERVICES_INTRO_LINES, SERVICE_AREA_LEADS, FAQ_INTRO_LINES,
+  EYEBROW_WHY, EYEBROW_SERVICES, EYEBROW_AREA, EYEBROW_FAQ, EYEBROW_CONTACT, EYEBROW_WHYUS,
+  H2_INTRO, H2_SERVICES_PREVIEW, H2_AREA_INDEX, H1_SERVICES, H1_SERVICE_AREA,
+  H2_AREA_LOCAL, H1_FAQ, H1_CONTACT, H3_SIGNS, H2_CTA, H2_WHYUS_DIFF,
 };
