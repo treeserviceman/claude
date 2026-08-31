@@ -194,5 +194,54 @@
     "deployed": true,
     "accessFixed": true,
     "url": "https://raccoonremovalgrandprairietx.netlify.app"
+  },
+  {
+    "slug": "raccoonremovaledinburgtx",
+    "siteId": "20cb4d8d-2381-44e9-8cd4-502b9efcedb2",
+    "deployed": true,
+    "accessFixed": true,
+    "url": "https://raccoonremovaledinburgtx.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalatascocitatx",
+    "siteId": "276e73a3-835e-4793-ac21-cf4324f6a0fe",
+    "deployed": true,
+    "accessFixed": true,
+    "url": "https://raccoonremovalatascocitatx.netlify.app"
+  },
+  {
+    "slug": "raccooninatticremovalkingwoodtx",
+    "siteId": "5b5b028b-e0a4-438e-8573-4850b3eb2a8f",
+    "deployed": true,
+    "accessFixed": true,
+    "url": "https://raccooninatticremovalkingwoodtx.netlify.app"
+  },
+  {
+    "slug": "raccoonremovaldentontx",
+    "siteId": "514a5d1b-1148-4225-a8a2-e03c589889bc",
+    "deployed": true,
+    "accessFixed": true,
+    "url": "https://raccoonremovaldentontx2.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalbeaumonttx",
+    "siteId": "0e5c608c-8206-465a-b05a-45af88d6497a",
+    "deployed": true,
+    "accessFixed": true,
+    "url": "https://raccoonremovalbeaumonttx.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalwillowtx",
+    "siteId": "858155bc-eca6-4367-91d6-d37afef5f042",
+    "deployed": true,
+    "accessFixed": true,
+    "url": "https://raccoonremovalwillowtx.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalrichardsontx",
+    "siteId": "6dfe78bd-e192-4140-9bfd-404388a57540",
+    "deployed": true,
+    "accessFixed": true,
+    "url": "https://raccoonremovalrichardsontx.netlify.app"
   }
 ]
