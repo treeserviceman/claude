@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://macombcountyraccoonremoval.netlify.app/sitemap.xml

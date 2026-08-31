@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalserviceinclackamascounty.netlify.app/sitemap.xml

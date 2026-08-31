@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovaljaspercounty.netlify.app/sitemap.xml

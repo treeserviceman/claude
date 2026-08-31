@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://oceanpinesmdraccoonremoval.netlify.app/sitemap.xml

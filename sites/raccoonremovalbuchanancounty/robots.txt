@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalbuchanancounty.netlify.app/sitemap.xml

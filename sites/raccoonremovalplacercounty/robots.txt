@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalplacercounty.netlify.app/sitemap.xml

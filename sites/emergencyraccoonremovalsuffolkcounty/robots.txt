@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://emergencyraccoonremovalsuffolkcounty.netlify.app/sitemap.xml

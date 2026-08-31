@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalsanbernardinocounty.netlify.app/sitemap.xml

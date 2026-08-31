@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalmonroecounty.netlify.app/sitemap.xml

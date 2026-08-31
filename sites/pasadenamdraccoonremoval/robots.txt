@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pasadenamdraccoonremoval.netlify.app/sitemap.xml

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalwalkercounty.netlify.app/sitemap.xml

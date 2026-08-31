@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalcarrollcounty.netlify.app/sitemap.xml

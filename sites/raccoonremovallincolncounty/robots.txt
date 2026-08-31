@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovallincolncounty.netlify.app/sitemap.xml

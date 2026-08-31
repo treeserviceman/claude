@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalfremontcounty.netlify.app/sitemap.xml

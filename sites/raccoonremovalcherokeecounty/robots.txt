@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalcherokeecounty.netlify.app/sitemap.xml

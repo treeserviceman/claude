@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalrussellcounty.netlify.app/sitemap.xml

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalgarfieldcounty.netlify.app/sitemap.xml

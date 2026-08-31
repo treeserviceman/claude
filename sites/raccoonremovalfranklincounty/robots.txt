@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalfranklincounty.netlify.app/sitemap.xml

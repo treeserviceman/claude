@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalfultoncounty.netlify.app/sitemap.xml

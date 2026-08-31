@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://croftonmdraccoonremoval.netlify.app/sitemap.xml

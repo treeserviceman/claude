@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalputnamcounty.netlify.app/sitemap.xml

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://wheatonmdraccoonremoval.netlify.app/sitemap.xml

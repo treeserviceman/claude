@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovaljeffersoncounty.netlify.app/sitemap.xml

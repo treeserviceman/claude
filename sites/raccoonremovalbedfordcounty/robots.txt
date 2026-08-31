@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalbedfordcounty.netlify.app/sitemap.xml

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalhampshirecounty.netlify.app/sitemap.xml

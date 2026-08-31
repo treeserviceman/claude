@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalmadisoncounty.netlify.app/sitemap.xml

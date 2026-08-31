@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalclintoncounty.netlify.app/sitemap.xml

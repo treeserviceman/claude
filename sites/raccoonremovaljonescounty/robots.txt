@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovaljonescounty.netlify.app/sitemap.xml

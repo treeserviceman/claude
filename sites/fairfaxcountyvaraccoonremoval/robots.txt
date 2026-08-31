@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fairfaxcountyvaraccoonremoval.netlify.app/sitemap.xml

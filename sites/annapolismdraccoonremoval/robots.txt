@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://annapolismdraccoonremoval.netlify.app/sitemap.xml

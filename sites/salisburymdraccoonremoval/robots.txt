@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://salisburymdraccoonremoval.netlify.app/sitemap.xml

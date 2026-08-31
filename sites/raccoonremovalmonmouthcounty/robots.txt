@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalmonmouthcounty.netlify.app/sitemap.xml

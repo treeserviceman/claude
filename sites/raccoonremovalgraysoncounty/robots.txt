@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalgraysoncounty.netlify.app/sitemap.xml

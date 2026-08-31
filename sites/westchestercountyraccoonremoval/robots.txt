@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://westchestercountyraccoonremoval.netlify.app/sitemap.xml

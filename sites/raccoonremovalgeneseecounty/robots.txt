@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalgeneseecounty.netlify.app/sitemap.xml

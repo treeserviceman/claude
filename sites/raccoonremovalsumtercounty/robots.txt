@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalsumtercounty.netlify.app/sitemap.xml

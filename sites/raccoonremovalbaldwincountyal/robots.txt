@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalbaldwincountyal.netlify.app/sitemap.xml

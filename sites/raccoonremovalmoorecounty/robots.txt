@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalmoorecounty.netlify.app/sitemap.xml

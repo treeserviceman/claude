@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://santaclaracountyraccoonremoval.netlify.app/sitemap.xml

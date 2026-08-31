@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalstclaircounty.netlify.app/sitemap.xml

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalmedinacounty.netlify.app/sitemap.xml

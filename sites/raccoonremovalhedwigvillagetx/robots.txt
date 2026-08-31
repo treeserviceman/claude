@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalhedwigvillagetx.netlify.app/sitemap.xml

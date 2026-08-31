@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalpinalcounty.netlify.app/sitemap.xml

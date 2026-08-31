@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalmitchellcounty.netlify.app/sitemap.xml

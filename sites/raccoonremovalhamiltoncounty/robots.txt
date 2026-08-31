@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalhamiltoncounty.netlify.app/sitemap.xml

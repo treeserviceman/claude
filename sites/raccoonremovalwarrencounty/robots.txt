@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalwarrencounty.netlify.app/sitemap.xml

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalwashoecountynv.netlify.app/sitemap.xml

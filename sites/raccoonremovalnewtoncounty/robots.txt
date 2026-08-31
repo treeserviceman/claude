@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalnewtoncounty.netlify.app/sitemap.xml

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalphoenixmd.netlify.app/sitemap.xml

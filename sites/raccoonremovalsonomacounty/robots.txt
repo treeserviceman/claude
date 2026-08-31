@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovalsonomacounty.netlify.app/sitemap.xml

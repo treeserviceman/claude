@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovaladamscounty.netlify.app/sitemap.xml

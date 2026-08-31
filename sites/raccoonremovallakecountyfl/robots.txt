@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raccoonremovallakecountyfl.netlify.app/sitemap.xml
