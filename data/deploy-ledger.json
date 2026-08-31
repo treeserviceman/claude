@@ -718,5 +718,32 @@
     "url": "https://raccoonremovalcontracostacounty.netlify.app",
     "contentFixed": true,
     "headingsFixed": true
+  },
+  {
+    "slug": "raccoonremovalfresnocounty",
+    "siteId": "6d2b1a23-2f25-4d9b-8ce4-4ed9b28dac3d",
+    "deployed": true,
+    "accessFixed": false,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalfresnocounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalclevelandcounty",
+    "siteId": "2493f90f-6aaf-495a-be4c-f6266e62d84b",
+    "deployed": true,
+    "accessFixed": false,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalclevelandcounty.netlify.app"
+  },
+  {
+    "slug": "raccoonremovalserviceinclackamascounty",
+    "siteId": "764a70b5-25b3-43f6-84f7-3bd37b91e5af",
+    "deployed": true,
+    "accessFixed": false,
+    "contentFixed": true,
+    "headingsFixed": true,
+    "url": "https://raccoonremovalserviceinclackamascounty.netlify.app"
   }
 ]
