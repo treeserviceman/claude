@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img">
+<defs>
+<linearGradient id="bg35" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#2b0f3d"/><stop offset="1" stop-color="#6b2c91"/>
+</linearGradient>
+</defs>
+<rect width="800" height="600" fill="url(#bg35)"/>
+<circle cx="415" cy="185" r="140" fill="#f3e8fa" opacity="0.08"/>
+<circle cx="385" cy="185" r="180" fill="#f3e8fa" opacity="0.06"/>
+
+<g transform="translate(400,300)">
+<ellipse cx="0" cy="0" rx="90" ry="150" fill="#f3e8fa"/>
+<ellipse cx="0" cy="-50" rx="70" ry="18" fill="#6b2c91" opacity="0.5"/><ellipse cx="0" cy="-20" rx="70" ry="18" fill="#6b2c91" opacity="0.5"/><ellipse cx="0" cy="10" rx="70" ry="18" fill="#6b2c91" opacity="0.5"/><ellipse cx="0" cy="40" rx="70" ry="18" fill="#6b2c91" opacity="0.5"/>
+<ellipse cx="0" cy="-140" rx="45" ry="38" fill="#f3e8fa"/>
+<path d="M -20 -170 L -70 -230 M 20 -170 L 70 -230" stroke="#6b2c91" stroke-width="6" stroke-linecap="round"/>
+<path d="M -90 -60 L -170 -90 M -90 0 L -180 0 M -90 60 L -170 90" stroke="#6b2c91" stroke-width="10" stroke-linecap="round"/>
+<path d="M 90 -60 L 170 -90 M 90 0 L 180 0 M 90 60 L 170 90" stroke="#6b2c91" stroke-width="10" stroke-linecap="round"/>
+</g></svg>
