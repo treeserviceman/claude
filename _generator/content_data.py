@@ -3,7 +3,7 @@
 
 PHONE_DISPLAY = "(833) 901-3895"
 PHONE_TEL = "+18339013895"
-BRAND = "Nationwide Wildlife & Pest Control"
+BRAND = "Bayswater Pest Control"
 
 # General, defensible climate/region description per state (true at the
 # state/region level -- not city-specific invention).

@@ -146,8 +146,9 @@ def map_embed(lat, lng, zoom=11):
     src = f"https://www.google.com/maps?q={lat},{lng}&z={zoom}&output=embed"
     return f"""<div class="map-wrap"><iframe src="{src}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Service area map"></iframe></div>"""
 
-def page(title, description, canonical_path, body_html, schemas, base_url="https://example-pestsite.com"):
+def page(title, description, canonical_path, body_html, schemas, base_url="https://bayswaterpestcontrol.com"):
     schema_html = "\n".join(schema_script(s) for s in schemas)
+    canonical_url = base_url.rstrip('/') + canonical_path
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -155,10 +156,11 @@ def page(title, description, canonical_path, body_html, schemas, base_url="https
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
-<link rel="canonical" href="{base_url.rstrip('/')}{canonical_path}">
+<link rel="canonical" href="{canonical_url}">
 <link rel="stylesheet" href="/assets/style.css">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
+<meta property="og:url" content="{canonical_url}">
 <meta property="og:type" content="website">
 <meta name="robots" content="index, follow">
 {schema_html}

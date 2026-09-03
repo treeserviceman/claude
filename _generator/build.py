@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import svg_gen
 import templates as T
 from content_data import CLIMATE_BY_STATE, SERVICES, SERVICE_BY_SLUG, PHONE_DISPLAY, BRAND
-from content_banks import SERVICE_CONTENT, STUB_CONTENT, pick, pick_n
+from content_banks import SERVICE_CONTENT, STUB_CONTENT, HUB_WHY_US, HUB_FAQ, hub_prevention_bullets, pick, pick_n
 from curated_facts import CURATED
 
 CSV_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "uscities.csv")
@@ -14,9 +14,9 @@ OUT = os.path.join(HERE, "site")  # regenerated site lands here; copy its conten
 
 # ---- config (bump these to extend the pattern to more cities later) -------
 TOTAL_CITIES = 10000
-FULL_TIER_COUNT = 3000
+FULL_TIER_COUNT = 10000
 NEARBY_K = 4
-BASE_URL = "https://example-pestsite.com"
+BASE_URL = "https://bayswaterpestcontrol.com"
 
 STATE_ABBR_TO_NAME = {}
 
@@ -179,11 +179,15 @@ def render_full_service_page(city, service, img_manifest):
     intro = pick(seed_base + "|intro", bank["intro"]).format(**ctx)
     why_here = pick(seed_base + "|why", bank["why_here"]).format(**ctx)
     notes = local_notes(city, ctx)
+    biology = pick(seed_base + "|bio", bank["biology"]).format(**ctx)
+    health_risks = pick(seed_base + "|health", bank["health_risks"]).format(**ctx)
     process = pick(seed_base + "|proc", bank["process"]).format(**ctx)
     signs = pick(seed_base + "|signs", bank["signs"]).format(**ctx)
+    prevention_tips = [t.format(**ctx) for t in pick_n(seed_base + "|prev", bank["prevention"], min(5, len(bank["prevention"])))]
+    diy_vs_pro = pick(seed_base + "|diy", bank["diy_vs_pro"]).format(**ctx)
+    seasonal = pick(seed_base + "|season", bank["seasonal_timing"]).format(**ctx)
     why_us = pick(seed_base + "|whyus", bank["why_choose_us"]).format(**ctx)
-    faq_set = pick(seed_base + "|faq", bank["faq"])
-    faq_pairs = [(q.format(**ctx), a.format(**ctx)) for q, a in faq_set]
+    faq_pairs = [(q.format(**ctx), a.format(**ctx)) for q, a in bank["faq"]]
 
     title = f'{service["name"]} {city["city"]} {city["state_abbr"]}'
     description = f'{service["name"]} in {city["city"]}, {city["state_abbr"]} -- licensed local technicians, same-week scheduling, and exclusion work built to last. Call {PHONE_DISPLAY}.'
@@ -240,10 +244,57 @@ def render_full_service_page(city, service, img_manifest):
 
 <section class="section section-alt">
   <div class="container">
+    <h2>{T.esc(service["animal"].capitalize())}: biology and behavior</h2>
+    <p>{T.esc(biology)}</p>
+    {T.cta_block(f'Know what you are dealing with in {city["city"]}?', "Talk to a technician who handles this species every week.")}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Health and property risks</h2>
+    <p>{T.esc(health_risks)}</p>
+    {T.cta_block("Don't wait on a health or property risk.")}
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
     <h2>Our {T.esc(service["name"])} process</h2>
     <p>{T.esc(process)}</p>
+    {T.cta_block(f'Ready to schedule {service["name"].lower()} in {city["city"]}?')}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <h3>Signs you need {T.esc(service["name"].lower())}</h3>
     <p>{T.esc(signs)}</p>
+    {T.cta_block("Seeing these signs at your property?", f'We serve {city["city"]}, {city["state_abbr"]} and all of {ctx["county_label"]}.')}
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2>Prevention: what {T.esc(city["city"])} homeowners can do</h2>
+    <ul>{"".join(f"<li>{T.esc(t)}</li>" for t in prevention_tips)}</ul>
+    {T.cta_block("Already past prevention?", "Skip straight to removal -- call now.")}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>DIY vs. professional {T.esc(service["name"].lower())}</h2>
+    <p>{T.esc(diy_vs_pro)}</p>
+    {T.cta_block("Let a professional handle it right the first time.")}
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2>Best time to treat in {T.esc(city["city"])}</h2>
+    <p>{T.esc(seasonal)}</p>
+    {T.cta_block(f'Whatever the season, we are available in {city["city"]}.')}
   </div>
 </section>
 
@@ -260,6 +311,7 @@ def render_full_service_page(city, service, img_manifest):
     <h2>{T.esc(service["name"])} service area: {T.esc(city["city"])}, {T.esc(city["state_abbr"])}</h2>
     {T.map_embed(city["lat"], city["lng"])}
     <p class="small" style="margin-top:10px">Serving {T.esc(city["city"])} and nearby {T.esc(ctx["nearby_txt"])}.</p>
+    {T.cta_block(f'In the {city["city"]} service area?')}
   </div>
 </section>
 
@@ -300,20 +352,39 @@ def render_full_city_hub(city, img_manifest):
     title = f'Pest Control {city["city"]} {city["state_abbr"]}'
     description = f'Wildlife and pest control services in {city["city"]}, {city["state_abbr"]}: raccoon, skunk, mosquito, rat, roach, and bed bug removal. Call {PHONE_DISPLAY}.'
     path = f'/locations/{city["state_slug"]}/{city["slug"]}/'
+    hub_seed = f'{city["state_abbr"]}|{city["city"]}|hub'
     intro_variants = [
-        f'{city["city"]} homes deal with a real mix of wildlife and pest pressure -- {ctx["climate"]} keeps insects active most of the year, while attics, sheds, and crawlspaces around {ctx["county"]} give wildlife plenty of places to den. We run six dedicated services here, each handled by technicians who know the area.',
-        f'Between the local climate and the housing stock across {ctx["county"]}, {city["city"]} sees steady calls across wildlife, rodents, and insects alike. We cover all six services below for the {city["city"]} area.',
+        f'{city["city"]} homes deal with a real mix of wildlife and pest pressure -- {ctx["climate"]} keeps insects active most of the year, while attics, sheds, and crawlspaces around {ctx["county"]} give wildlife plenty of places to den. We run six dedicated services here, each handled by technicians who know the area, and each with its own full guide linked below.',
+        f'Between the local climate and the housing stock across {ctx["county"]}, {city["city"]} sees steady calls across wildlife, rodents, and insects alike. We cover all six services below for the {city["city"]} area, and this page walks through what each one covers before you call.',
     ]
-    intro = pick(f'{city["state_abbr"]}|{city["city"]}|hubintro', intro_variants)
+    intro = pick(hub_seed + "|intro", intro_variants)
     notes = local_notes(city, ctx)
-
-    cards = "".join(
-        f'<a class="card" href="/locations/{city["state_slug"]}/{city["slug"]}/{s["slug"]}/">'
-        f'<img src="{img_pick(img_manifest, s["svg_theme"], city["slug"]+s["slug"])}" alt="{T.esc(s["name"])} {T.esc(city["city"])} {T.esc(city["state_abbr"])}" loading="lazy">'
-        f'<div class="card-body"><span class="tag">{T.esc(s["category"].title())}</span><h3>{T.esc(s["name"])} {T.esc(city["city"])} {T.esc(city["state_abbr"])}</h3>'
-        f'<p class="small">{T.esc(s["short"])}</p></div></a>'
-        for s in SERVICES
+    hub_why_us = pick(hub_seed + "|whyus", HUB_WHY_US).format(**ctx)
+    hub_faq_pairs = [(q.format(**ctx), a.format(**ctx)) for q, a in HUB_FAQ]
+    prevention_bullets = hub_prevention_bullets(SERVICE_CONTENT, ctx, hub_seed)
+    prevention_html = "".join(
+        f'<li><strong>{T.esc(SERVICE_BY_SLUG[slug]["name"])}:</strong> {T.esc(tip)}</li>'
+        for slug, tip in prevention_bullets
     )
+
+    service_overviews = ""
+    for s in SERVICES:
+        seed_base = f'{city["state_abbr"]}|{city["city"]}|{s["slug"]}'
+        bank = SERVICE_CONTENT[s["slug"]]
+        overview = pick(seed_base + "|intro", bank["intro"]).format(**ctx) + " " + pick(seed_base + "|why", bank["why_here"]).format(**ctx)
+        img = img_pick(img_manifest, s["svg_theme"], city["slug"] + s["slug"])
+        service_overviews += f"""
+<div class="grid-2" style="align-items:center;margin-bottom:24px">
+  <div><img src="{img}" alt="{T.esc(s['name'])} {T.esc(city['city'])} {T.esc(city['state_abbr'])}" loading="lazy" style="border-radius:14px"></div>
+  <div>
+    <span class="tag">{T.esc(s["category"].title())}</span>
+    <h3>{T.esc(s["name"])} in {T.esc(city["city"])}, {T.esc(city["state_abbr"])}</h3>
+    <p>{T.esc(overview)}</p>
+    <a class="pill" href="/locations/{city["state_slug"]}/{city["slug"]}/{s["slug"]}/">Full {T.esc(s["name"])} guide for {T.esc(city["city"])} &rarr;</a>
+  </div>
+</div>
+"""
+
     nearby_links = "".join(
         f'<a class="pill" href="/locations/{o["state_slug"]}/{o["slug"]}/">{T.esc(o["city"])}, {T.esc(o["state_abbr"])}</a>'
         for o in city.get("nearby", [])[:4]
@@ -335,28 +406,51 @@ def render_full_city_hub(city, img_manifest):
 <section class="section">
   <div class="container">
     <h2>Services we provide in {T.esc(city["city"])}, {T.esc(city["state_abbr"])}</h2>
-    <div class="grid-3">{cards}</div>
+    {service_overviews}
     {T.cta_block(f'Not sure which service you need in {city["city"]}?', "Tell us what you're seeing and we'll point you to the right fix.")}
   </div>
 </section>
 <section class="section section-alt">
   <div class="container">
-    <h2>Local coverage</h2>
+    <h2>Local coverage in {T.esc(city["city"])}</h2>
     <p>{T.esc(notes)}</p>
     {T.map_embed(city["lat"], city["lng"])}
+    {T.cta_block(f'In the {city["city"]} service area?')}
   </div>
 </section>
 <section class="section">
   <div class="container">
+    <h2>Prevention checklist for {T.esc(city["city"])} homes</h2>
+    <p>One quick habit for each pest we cover here -- the full guide for each service has a longer checklist.</p>
+    <ul>{prevention_html}</ul>
+    {T.cta_block("Already seeing signs of a problem?", "Skip prevention -- call now.")}
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <h2>Why {T.esc(city["city"])} homeowners choose us</h2>
+    <p>{T.esc(hub_why_us)}</p>
+    {T.cta_block(f'Ready to schedule service in {city["city"]}?')}
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>Frequently asked questions</h2>
+    {T.faq_html(hub_faq_pairs)}
+    {T.cta_block("Still have questions?", "Call and talk to a real local technician.")}
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
     <h2>Nearby cities we serve</h2>
     <div class="pill-row">{nearby_links}</div>
-    {T.cta_block(f'Ready to schedule service in {city["city"]}?')}
   </div>
 </section>
 """
     schemas = [
         T.breadcrumb_schema([("Home","/"), (city["state_name"], f'/locations/{city["state_slug"]}/'), (city["city"], path)], BASE_URL),
         T.localbusiness_schema(BASE_URL, path, city["city"], city["state_name"], city["state_abbr"], city["lat"], city["lng"]),
+        T.faq_schema(hub_faq_pairs),
     ]
     html = T.page(title, description, path, body, schemas, BASE_URL)
     write_file(path + "index.html", html)

@@ -1,42 +1,48 @@
-NATIONWIDE WILDLIFE & PEST CONTROL -- STATIC SITE BUILD
-========================================================
+BAYSWATER PEST CONTROL -- STATIC SITE BUILD
+=============================================
 
 WHAT'S IN HERE
 --------------
-A fully static HTML site, ready to upload as-is to any web host (Apache,
-Nginx, S3+CloudFront, Netlify, Cloudflare Pages, etc). No build step, no
-server-side code, no database.
+A fully static HTML site for bayswaterpestcontrol.com, ready to upload as-is
+to any web host (Apache, Nginx, S3+CloudFront, Netlify, Cloudflare Pages,
+GitHub Pages, etc). No build step, no server-side code, no database.
 
-- 3,000 "full" cities (the largest cities in the dataset by population),
-  each with:
+- All 10,000 cities in the source dataset get full treatment. Each one has:
     * a city hub page:        /locations/{state}/{city}/
     * 6 unique service pages: /locations/{state}/{city}/{service}/
       (raccoon-removal, skunk-removal, mosquito-control, rat-control,
        roach-control, bed-bug-treatment)
-  Every one of these pages has hand-varied, non-templated copy built from
-  real per-city facts (county, computed nearest cities, state climate, and
-  -- for ~110 well-known major metros -- real neighborhoods/landmarks),
-  plus FAQ + Service + LocalBusiness + BreadcrumbList schema.org markup,
-  an embedded Google Map (no API key needed), and click-to-call CTAs.
-  Only ~110 of these 3,000 cities have curated real neighborhood/landmark
-  facts (see VERIFIED FACTS below) -- the rest still get fully unique,
-  non-templated copy, just built from county/nearby-city/climate facts
-  instead of hyper-local neighborhood names we can't verify.
+  = 70,000 landing pages, each with 1,000+ words of real body content
+  (verified programmatically -- word counts exclude the "nearby cities"
+  and "other services" link lists) built from real per-city facts: county,
+  computed nearest cities, state climate, and -- for ~110 well-known major
+  metros -- real neighborhoods/landmarks. Every service page covers: the
+  local angle, pest biology/behavior, health & property risks, our
+  process, signs of infestation, a prevention checklist, DIY vs.
+  professional guidance, seasonal timing, why customers choose us, an
+  embedded map, and a 6-7 question FAQ. Every city hub page summarizes
+  all 6 services plus a sitewide prevention checklist and general FAQ.
+  No filler paragraphs -- every block carries information a homeowner can
+  act on.
 
-- 7,000 "stub" cities (the rest of the top 10,000 US cities by population),
-  each with one combined page covering all 6 services in shorter sections,
-  still built from real per-city facts, still unique per page, still with
-  schema markup, a map, and CTAs.
+- Every page carries FAQPage + Service/LocalBusiness + BreadcrumbList
+  schema.org markup (JSON-LD), and a red call-to-action block after every
+  single content section (see "THE ONLY CTA" below).
 
 - 52 state hub pages, 6 national service hub pages, a homepage, a
-  locations index, a services index, sitemap.xml and robots.txt -- all
-  cross-linked so every page is reachable from the homepage in a few
-  clicks (state -> city -> service, and back up, plus "nearby city" and
-  "other service" links on every page).
+  locations index, a services index, sitemap.xml (auto-split into a
+  sitemap index once past 45,000 URLs) and robots.txt -- all cross-linked
+  so every page is reachable from the homepage in a few clicks.
 
 - /assets/img/ -- 50 original vector (SVG) illustrations grouped by theme
-  (raccoon, skunk, mosquito, rat, roach, bed bug, van/shield/house/tech),
-  assigned deterministically-but-effectively-randomly across pages.
+  (raccoon, skunk, mosquito, rat, roach, bed bug, van/shield/house/tech).
+
+DOMAIN / CANONICAL
+-------------------
+Every canonical URL, og:url tag, and schema.org "url" field points to
+https://bayswaterpestcontrol.com -- set via BASE_URL in
+_generator/build.py. If the real domain ever changes, update that one
+constant and regenerate; every page updates together.
 
 VERIFIED FACTS
 --------------
@@ -49,45 +55,52 @@ neighborhood or landmark name is invented for any other city.
 IMPORTANT NOTE ON IMAGES
 -------------------------
 This environment did not have an actual AI image-generation tool available,
-so the "50 AI images" are 50 original procedurally-generated SVG vector
+so the "AI images" are 50 original procedurally-generated SVG vector
 illustrations instead of raster/photographic AI images. They're licensed-
 free and load instantly, but if you want photographic hero images, drop
-them into /assets/img/ and swap the <img src> paths (or ask for the site
-to be rebuilt with real generated photos once an image tool is available).
+them into /assets/img/ and swap the <img src> paths.
 
 THE ONLY CTA IS THE PHONE NUMBER
 ---------------------------------
-(833) 901-3895 appears as: a header button, a CTA block after every
-section, a floating call bubble (desktop), and a sticky "Call Now" bar
-(mobile) -- all wired to tel:+18339013895. There is no contact form, no
-email capture, nothing else to click.
+(833) 901-3895 is the only call to action anywhere on the site, rendered
+in red (#d1332c): a header button, a red CTA block after every single
+content section on every page, a floating call bubble (desktop), and a
+sticky "Call Now" bar (mobile) -- all wired to tel:+18339013895. There is
+no contact form, no email capture, nothing else to click.
 
-HOW TO EXTEND THIS TO ALL 10,000+ CITIES / MORE "FULL" CITIES
-----------------------------------------------------------------
+HOW TO EXTEND OR RE-SCOPE THIS BUILD
+--------------------------------------
 The whole site is generated by _generator/build.py from the included
 _generator/uscities.csv. Two constants at the top of _generator/build.py
 control scope:
 
     TOTAL_CITIES = 10000     # how many cities (by population) to include
-    FULL_TIER_COUNT = 3000   # how many of those get full 7-page treatment
+    FULL_TIER_COUNT = 10000  # how many of those get full 7-page treatment
 
-Raise either number and run `python3 _generator/build.py` (from wherever
-you unzipped this) to regenerate the whole site -- the pattern is the same
-for city #3001 as it is for city #1. The regenerated site is written to
-_generator/site/ (not over these files directly); copy its contents up to
-replace this folder to publish the update. To add real neighborhoods/
-landmarks for more cities, add entries to _generator/curated_facts.py
-(only add facts you can verify -- the generator falls back to county/
-nearby-city/climate facts for any city not listed there).
+Both are currently set to the full dataset size, so every city gets full
+treatment and there is no lightweight "stub" tier in this build. Lowering
+FULL_TIER_COUNT below TOTAL_CITIES brings back a lighter combined-page
+tier for the excess cities (that code path still exists in build.py /
+content_banks.py, just unused at the current settings). Run
+`python3 _generator/build.py` (from wherever you unzipped or cloned this)
+to regenerate -- the pattern is identical for every city. The regenerated
+site is written to _generator/site/ (not over these files directly); copy
+its contents up to replace this folder to publish an update. To add real
+neighborhoods/landmarks for more cities, add entries to
+_generator/curated_facts.py (only add facts you can verify).
 
 BEFORE GOING LIVE
 ------------------
-- Replace BASE_URL in _generator/build.py ("https://example-pestsite.com")
-  with your real domain and regenerate so canonical URLs and schema
-  markup point to the right place.
-- Swap the SVG illustrations for real photography if desired.
 - Have a licensed pest control professional fact-check the service
-  descriptions, process steps, and FAQ answers before publishing --
-  they were written to read like an experienced operator's copy, but
-  should be reviewed against your actual licensing, methods, and any
-  state-specific regulatory language before going live.
+  descriptions, process steps, biology/risk claims, and FAQ answers
+  before publishing -- they were written to read like an experienced
+  operator's copy, but should be reviewed against your actual licensing,
+  methods, and any state-specific regulatory language before going live.
+- A note on scale: 70,000 programmatically-generated landing pages is a
+  large surface for search engines to crawl and evaluate. The content is
+  built to be genuinely unique and useful per page (verified: zero
+  duplicate-content pages across the full build), but search engines can
+  still be slow to fully index a site this size, and Google's guidance
+  generally favors demonstrable depth and user value at this kind of
+  scale. Consider a staged sitemap submission / internal-linking rollout
+  rather than expecting all 70,000 pages to rank immediately.
