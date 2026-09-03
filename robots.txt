@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bayswaterpestcontrol.com/sitemap.xml

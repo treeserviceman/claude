@@ -1,0 +1,123 @@
+# Reference data: climate-by-state, service metadata, and modular content
+# variant banks used to build non-templated page copy.
+
+PHONE_DISPLAY = "(833) 901-3895"
+PHONE_TEL = "+18339013895"
+BRAND = "Bayswater Pest Control"
+
+# General, defensible climate/region description per state (true at the
+# state/region level -- not city-specific invention).
+CLIMATE_BY_STATE = {
+    "AL": "hot, humid subtropical summers and mild, wet winters",
+    "AK": "a subarctic to maritime climate with long, cold winters and short, cool summers",
+    "AZ": "a hot desert climate with intense summer heat and mild winters",
+    "AR": "a humid subtropical climate with hot, sticky summers and mild winters",
+    "CA": "a wide range of Mediterranean, coastal, and inland desert conditions depending on the region",
+    "CO": "a semi-arid climate with warm summers, cold winters, and big day-to-night temperature swings",
+    "CT": "a humid continental climate with warm, humid summers and cold winters",
+    "DC": "a humid subtropical climate with hot, muggy summers and cool winters",
+    "DE": "a humid subtropical climate with warm summers and mild winters",
+    "FL": "a hot, humid subtropical to tropical climate with a long, wet, buggy season",
+    "GA": "a humid subtropical climate with hot, humid summers and mild winters",
+    "HI": "a warm, humid tropical climate year-round",
+    "ID": "a semi-arid to continental climate with hot, dry summers and cold winters",
+    "IL": "a humid continental climate with hot, humid summers and cold, snowy winters",
+    "IN": "a humid continental climate with warm, humid summers and cold winters",
+    "IA": "a humid continental climate with hot summers and cold, snowy winters",
+    "KS": "a continental climate with hot summers, cold winters, and frequent temperature swings",
+    "KY": "a humid subtropical climate with hot, humid summers and mild winters",
+    "LA": "a hot, humid subtropical climate with a long, wet season and mild winters",
+    "ME": "a humid continental climate with warm summers and cold, snowy winters",
+    "MD": "a humid subtropical climate with hot, humid summers and cool winters",
+    "MA": "a humid continental climate with warm summers and cold winters",
+    "MI": "a humid continental climate with warm summers and cold, snowy winters",
+    "MN": "a humid continental climate with warm, humid summers and long, cold winters",
+    "MS": "a humid subtropical climate with hot, humid summers and mild winters",
+    "MO": "a humid continental to subtropical climate with hot, humid summers and cold winters",
+    "MT": "a semi-arid to continental climate with warm summers and long, cold winters",
+    "NE": "a continental climate with hot summers and cold winters",
+    "NV": "a mostly desert climate with hot, dry summers and mild winters",
+    "NH": "a humid continental climate with warm summers and cold, snowy winters",
+    "NJ": "a humid subtropical to continental climate with hot, humid summers and cold winters",
+    "NM": "a semi-arid to desert climate with hot summers and mild winters",
+    "NY": "a humid continental climate with warm, humid summers and cold, snowy winters",
+    "NC": "a humid subtropical climate with hot, humid summers and mild winters",
+    "ND": "a continental climate with warm summers and very cold winters",
+    "OH": "a humid continental climate with warm, humid summers and cold winters",
+    "OK": "a humid subtropical to semi-arid climate with hot summers and mild winters",
+    "OR": "a mix of mild, wet coastal and Willamette Valley winters with dry summers",
+    "PA": "a humid continental climate with warm, humid summers and cold winters",
+    "PR": "a warm, humid tropical climate year-round",
+    "RI": "a humid continental climate with warm summers and cold winters",
+    "SC": "a humid subtropical climate with hot, humid summers and mild winters",
+    "SD": "a continental climate with warm summers and cold winters",
+    "TN": "a humid subtropical climate with hot, humid summers and mild winters",
+    "TX": "conditions ranging from humid subtropical in the east to semi-arid and desert in the west, with long hot seasons",
+    "UT": "a semi-arid to desert climate with hot, dry summers and cold winters",
+    "VT": "a humid continental climate with warm summers and cold, snowy winters",
+    "VA": "a humid subtropical climate with hot, humid summers and mild winters",
+    "WA": "a mix of mild, wet coastal winters and drier summers",
+    "WV": "a humid continental to subtropical climate with warm summers and cool winters",
+    "WI": "a humid continental climate with warm summers and long, cold winters",
+    "WY": "a semi-arid, high-plains climate with warm summers and cold, windy winters",
+}
+
+# 6 core services. slug drives URLs; keyword is used verbatim in <title>.
+SERVICES = [
+    {
+        "slug": "raccoon-removal",
+        "name": "Raccoon Removal",
+        "animal": "raccoons",
+        "singular": "raccoon",
+        "category": "wildlife",
+        "svg_theme": "raccoon",
+        "short": "Humane raccoon trapping, exclusion, and attic cleanup.",
+    },
+    {
+        "slug": "skunk-removal",
+        "name": "Skunk Removal",
+        "animal": "skunks",
+        "singular": "skunk",
+        "category": "wildlife",
+        "svg_theme": "skunk",
+        "short": "Safe skunk trapping and den removal without the smell moving in with you.",
+    },
+    {
+        "slug": "mosquito-control",
+        "name": "Mosquito Control",
+        "animal": "mosquitoes",
+        "singular": "mosquito",
+        "category": "insect",
+        "svg_theme": "mosquito",
+        "short": "Yard treatments and standing-water reduction to reclaim your evenings outside.",
+    },
+    {
+        "slug": "rat-control",
+        "name": "Rat Control",
+        "animal": "rats",
+        "singular": "rat",
+        "category": "rodent",
+        "svg_theme": "rat",
+        "short": "Rodent-proofing, baiting, and exclusion for rats and mice.",
+    },
+    {
+        "slug": "roach-control",
+        "name": "Roach Control",
+        "animal": "roaches",
+        "singular": "roach",
+        "category": "insect",
+        "svg_theme": "roach",
+        "short": "Gel baiting and crack-and-crevice treatment that breaks the breeding cycle.",
+    },
+    {
+        "slug": "bed-bug-treatment",
+        "name": "Bed Bug Treatment",
+        "animal": "bed bugs",
+        "singular": "bed bug",
+        "category": "insect",
+        "svg_theme": "bedbug",
+        "short": "Heat and targeted chemical treatment that gets rid of bed bugs for good.",
+    },
+]
+
+SERVICE_BY_SLUG = {s["slug"]: s for s in SERVICES}
